@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="JPADay04_1" transaction-type="RESOURCE_LOCAL">
+		<!-- 
+		配置哦ORM hibernate  
+		實作 javax.persistence.spi.PersistenceProvider
+		-->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<!-- 對應的java bean完整路徑 -->
+		<class>tw.com.pcschool.beans.Customer</class>
+		<class>tw.com.pcschool.beans.Order</class>
+		
+		
+		<properties>
+
+			<!-- 資料庫連接相關設定 -->  
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password" value="Password123"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql:///jpa4_1?createDatabaseIfNotExist=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC&amp;useSSL=false"/>
+			
+			<!-- 配置JPA的實作類別，Hibernate的基本屬性 -->
+			<property name="hibernate.format_sql" value="true"/>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+		</properties>
+	</persistence-unit>
+</persistence>
